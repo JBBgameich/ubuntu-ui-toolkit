@@ -27,7 +27,6 @@
 #include <QtQuick/QQuickItem>
 #include <QtQuick/private/qquicktextinput_p.h>
 #include <QtQuick/private/qquicktextedit_p.h>
-#include <QtSystemInfo/QInputInfoManager>
 
 #include <UbuntuToolkit/private/ucmainwindow_p.h>
 
@@ -47,6 +46,7 @@ QuickUtils::QuickUtils(QObject *parent) :
     QGuiApplication::instance()->installEventFilter(this);
     m_omitIM << QStringLiteral("ibus") << QStringLiteral("none") << QStringLiteral("compose");
 
+#if 0
     m_inputInfo = new QInputInfoManager(this);
     connect(m_inputInfo, &QInputInfoManager::ready,
             this, &QuickUtils::onInputInfoReady);
@@ -55,8 +55,9 @@ QuickUtils::QuickUtils(QObject *parent) :
             this, &QuickUtils::onDeviceAdded);
     connect(m_inputInfo, &QInputInfoManager::deviceRemoved,
             this, &QuickUtils::onDeviceRemoved);
+#endif
 }
-
+#if 0
 void QuickUtils::onInputInfoReady()
 {
     QMapIterator<QString, QInputDevice*> i(m_inputInfo->deviceMap());
@@ -135,7 +136,7 @@ void QuickUtils::setKeyboardAttached(bool set)
     m_keyboardAttached = true;
     Q_EMIT keyboardAttachedChanged();
 }
-
+#endif
 /*!
  * \internal
  * Filter events to catch ChildAdded, when the the application gets the topmost

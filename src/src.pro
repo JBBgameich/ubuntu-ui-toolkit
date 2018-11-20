@@ -15,16 +15,8 @@ src_toolkit_lib.target = sub-toolkit-lib
 src_toolkit_lib.depends = sub-gestures-lib sub-metrics-lib
 SUBDIRS += src_toolkit_lib
 
-# Plugins
-
-linux {
-    src_metrics_lttng_plugin.subdir = UbuntuMetrics/lttng
-    src_metrics_lttng_plugin.target = sub-metrics-lttng-plugin
-    SUBDIRS += src_metrics_lttng_plugin
-}
 
 # QML modules
-
 src_metrics_module.subdir = imports/Metrics
 src_metrics_module.target = sub-metrics-module
 src_metrics_module.depends = sub-metrics-lib
@@ -42,8 +34,3 @@ SUBDIRS += src_layouts_module
 src_performance_metrics_module.subdir = imports/PerformanceMetrics
 src_performance_metrics_module.target = sub-performance-metrics-module
 SUBDIRS += src_performance_metrics_module
-
-src_test_module.subdir = imports/Test
-src_test_module.target = sub-test-module
-src_test_module.depends = sub-toolkit-lib
-SUBDIRS += src_test_module

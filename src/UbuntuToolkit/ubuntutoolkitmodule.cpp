@@ -59,8 +59,6 @@
 #include "ucactioncontext_p.h"
 #include "ucactionitem_p.h"
 #include "ucactionmanager_p.h"
-#include "ucalarm_p.h"
-#include "ucalarmmodel_p.h"
 #include "ucapplication_p.h"
 #include "ucargument_p.h"
 #include "ucarguments_p.h"
@@ -98,7 +96,6 @@
 #include "ucubuntushape_p.h"
 #include "ucubuntushapeoverlay_p.h"
 #include "ucunits_p.h"
-#include "ucurihandler_p.h"
 #include "unitythemeiconprovider_p.h"
 
 UT_NAMESPACE_BEGIN
@@ -223,11 +220,8 @@ void UbuntuToolkitModule::registerTypesToVersion(const char *uri, int major, int
     qmlRegisterType<UCArguments>(uri, major, minor, "Arguments");
     qmlRegisterType<UCArgument>(uri, major, minor, "Argument");
     qmlRegisterType<QQmlPropertyMap>();
-    qmlRegisterType<UCAlarm>(uri, major, minor, "Alarm");
-    qmlRegisterType<UCAlarmModel>(uri, major, minor, "AlarmModel");
     qmlRegisterType<UCStateSaver>(uri, major, minor, "StateSaver");
     qmlRegisterType<UCStateSaverAttached>();
-    qmlRegisterSimpleSingletonType<UCUriHandler>(uri, major, minor, "UriHandler");
     qmlRegisterType<UCMouse>(uri, major, minor, "Mouse");
     qmlRegisterType<UCInverseMouse>(uri, major, minor, "InverseMouse");
     qmlRegisterType<UCActionItem>(uri, major, minor, "ActionItem");
